@@ -1,5 +1,5 @@
-//zad1
-//функция 1
+# zad1
+#Функция 1 Найти максимальный простой делитель числа.
 def max_easy_del(a):
     delitel = 0
     for i in range(2, a):
@@ -12,7 +12,11 @@ def max_easy_del(a):
                 delitel = i
     return delitel
 
+
 print('Введите число')
 a = int(input())
 max = max_easy_del(a)
-print('max_del_prost: ', max)
+if max:
+    print('max_del_prost: ', max)
+else:
+    print('max_del_prost: not')
