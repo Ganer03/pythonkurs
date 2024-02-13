@@ -53,9 +53,20 @@ while a != '0':
 c = stroke1(str)
 d = find_all(str)
 str1 = str
-print('Упорядоченный список:')
+print('Упорядоченный список(для 3):')
 str.sort(key=lambda x: (max_str(stroke(x), x)/len(x) - c[stroke(x)]/d))
 print(str)
 print('Частоты списка:')
 for i in range(0, len(str)):
     print((max_str(stroke(str[i]), str[i])/len(str[i]) - c[stroke(str[i])]/d))
+
+
+# 5 В порядке увеличения частоты квадратичного отклонения
+# встречаемости самого часто встречаемого в строке символа от частоты его
+# встречаемости в текстах на этом алфавите.
+print('Упорядоченный список(для 5):')
+str.sort(key=lambda x: (max_str(stroke(x), x)/len(x)/(c[stroke(x)]/d))**2)
+print(str)
+print('Частоты списка:')
+for i in range(0, len(str)):
+    print((max_str(stroke(str[i]), str[i])/len(str[i])/(c[stroke(str[i])]/d))**2)
