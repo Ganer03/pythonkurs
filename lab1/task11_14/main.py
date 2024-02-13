@@ -1,5 +1,3 @@
-# 3 В порядке увеличения разницы между частотой наиболее часто
-# встречаемого символа в строке и частотой его появления в алфавите.
 def stroke(a):
     set = {}
     for i in a:
@@ -45,6 +43,18 @@ def max_str(c, a):
     return count
 
 
+def duncin(a):
+    r = -1
+    d = 0
+    for i in range(0,len(a)):
+        if ord(a[i])>d:
+            d = ord(a[i])
+            r = i
+    return d - abs(ord(a[-r-1])-d)
+
+
+# 3 В порядке увеличения разницы между частотой наиболее часто
+# встречаемого символа в строке и частотой его появления в алфавите.
 str = []
 a = input('Введите строку: ')
 while a != '0':
@@ -65,8 +75,24 @@ for i in range(0, len(str)):
 # встречаемости самого часто встречаемого в строке символа от частоты его
 # встречаемости в текстах на этом алфавите.
 print('Упорядоченный список(для 5):')
-str.sort(key=lambda x: (max_str(stroke(x), x)/len(x)/(c[stroke(x)]/d))**2)
+str.sort(key=lambda x: (max_str(stroke(x), x)/len(x) - (c[stroke(x)]/d))**2)
 print(str)
 print('Частоты списка:')
 for i in range(0, len(str)):
-    print((max_str(stroke(str[i]), str[i])/len(str[i])/(c[stroke(str[i])]/d))**2)
+    print((max_str(stroke(str[i]), str[i])/len(str[i]) - (c[stroke(str[i])]/d))**2)
+
+
+# 9 В порядке увеличения квадратичного отклонения между наибольшим
+# ASCII-кодом символа строки и разницы в ASCII-кодах пар зеркально
+# расположенных символов строки (относительно ее середины).
+a = input('Введите строку(для 9): ')
+str = []
+while a != '0':
+    str.append(a)
+    a = input('Введите строку: ')
+print('Упорядоченный список(для 9):')
+str.sort(key=lambda x: (duncin(x))**2)
+print(str)
+print('Частоты списка:')
+for i in range(0, len(str)):
+    print((duncin(str[i]))**2)
