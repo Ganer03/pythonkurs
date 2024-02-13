@@ -2,10 +2,23 @@
 def kol(a):
     r = 0
     for i in range(0, len(a)):
-        if 1072 <= ord(a[i]) <= 1102:
+        if 1040 <= ord(a[i]) <= 1102:
+            r += 1
+    return r
+
+
+# 8 Дана строка. Необходимо найти все используемые в ней строчные
+# символы латиницы.
+def kol_eu(a):
+    r = 0
+    for i in range(0, len(a)):
+        if 97 <= ord(a[i]) <= 122:
             r += 1
     return r
 
 
 a = input()
 print('Кол-во русских символов: ', kol(a))
+
+a = input()
+print('Кол-во строчных символов латиницы: ', kol_eu(a))
