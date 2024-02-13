@@ -17,8 +17,27 @@ def kol_eu(a):
     return r
 
 
+# 16 Дана строка. Необходимо найти минимальное из имеющихся в ней
+# целых чисел.
+def minimal(a):
+    a = a.split(" ")
+    min = 0
+    for i in range(len(a)):
+        if a[i].lstrip('-').isdigit():
+            min = int(a[i])
+            break
+    for i in range(len(a)):
+        if a[i].lstrip('-').isdigit():
+            if int(a[i])<min:
+                min = int(a[i])
+    return min
+
+
 a = input()
 print('Кол-во русских символов: ', kol(a))
 
 a = input()
 print('Кол-во строчных символов латиницы: ', kol_eu(a))
+
+a = input()
+print('Минимальное целое число: ', minimal(a))
