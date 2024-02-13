@@ -4,8 +4,8 @@ def kol(a):
     for i in range(0, len(a)):
         if 1072 <= ord(a[i]) <= 1102:
             r += 1
-    print(r)
+    return r
 
 
 a = input()
-kol(a)
+print('Кол-во русских символов: ', kol(a))
