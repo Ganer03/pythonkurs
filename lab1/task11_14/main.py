@@ -1,3 +1,4 @@
+# Для задачи 3,5
 def stroke(a):
     set = {}
     for i in a:
@@ -43,6 +44,7 @@ def max_str(c, a):
     return count
 
 
+# Для задачи 9
 def duncin(a):
     r = -1
     d = 0
@@ -51,6 +53,37 @@ def duncin(a):
             d = ord(a[i])
             r = i
     return d - abs(ord(a[-r-1])-d)
+
+
+# Для задачи 11
+def calculate_average_weight(string):
+    weigh = 0
+    for i in range(len(string) - 2):
+        tr_weight = calculate_weigh(string[i:i+3])
+        weigh += tr_weight
+    average_weight = weigh / (len(string) - 2)
+    return average_weight
+
+
+def calculate_weigh(triplet):
+    weight = 0
+    for char in triplet:
+        weight += ord(char)
+    return weight
+
+
+def calculate_deviation(string):
+    first_weight = calculate_average_weight(string[0])
+    current_string_weight = calculate_average_weight(string)
+    deviation = (first_weight - current_string_weight)**2
+    print(string, deviation)
+    return deviation
+
+
+def sort_strings(strings):
+    print('Частоты для 11')
+    sorted_strings = sorted(strings, key=calculate_deviation)
+    return sorted_strings
 
 
 # 3 В порядке увеличения разницы между частотой наиболее часто
@@ -96,3 +129,16 @@ print(str)
 print('Частоты списка:')
 for i in range(0, len(str)):
     print((duncin(str[i]))**2)
+
+
+# 11 В порядке квадратичного отклонения дисперсии максимального
+# среднего веса ASCII-кода тройки символов в строке от максимального
+# среднего веса ASCII-кода тройки символов в первой строке.
+a = input('Введите строку(для 11): ')
+str = []
+while a != '0':
+    str.append(a)
+    a = input('Введите строку: ')
+sorted_strings = sort_strings(str)
+print('Упорядоченный список(для 11):')
+print(sorted_strings)
