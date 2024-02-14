@@ -1,37 +1,37 @@
 def main():
     filename = "input.txt"
     language = {}
-    max = 0
+    maxer = 0
     b = []
     with open(filename, 'r') as file:
         n = int(file.readline())
         for i in range(0,n):
-            list = file.readline().strip('\n')
-            if list.isdigit():
-                j = int(list)
+            lister = file.readline().strip('\n')
+            if lister.isdigit():
+                j = int(lister)
                 i += j+1
                 c = []
                 for k in range(0,j):
-                    list = file.readline().strip('\n')
-                    if list in language:
-                        language[list] += 1
+                    lister = file.readline().strip('\n')
+                    if lister in language:
+                        language[lister] += 1
                     else:
-                        language[list] = 1
-                    c.append(list)
-                if j>max:
-                    max = j
+                        language[lister] = 1
+                    c.append(lister)
+                if j>maxer:
+                    maxer = j
                     b = c
     count = 0
-    list = []
+    lister = []
     print(language)
     for i in language:
         if language[i] == n:
-            list.append(i)
+            lister.append(i)
             count += 1
     print(count)
-    for i in range(len(list)):
-        print(list[i])
-    print(max)
+    for i in range(len(lister)):
+        print(lister[i])
+    print(maxer)
     b.sort()
     for i in b:
         print(i)
